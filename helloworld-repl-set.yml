@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: ReplicaSet
+metadata:
+  name: helloworld-replicaset
+spec:
+  replicas: 2
+  selector:
+    app: replicaset
+  template:
+    metadata:
+      labels:
+        app: replicaset
+    spec:
+      containers:
+      - name: k8s-demo
+        image: arjunachari12/k8s-demo
+        ports:
+        - name: nodejs-port
+          containerPort: 3000
