@@ -1,15 +1,18 @@
 apiVersion: v1
 kind: ReplicaSet
 metadata:
-  name: helloworld-replicaset
+  name: helloworld-replicaSet
+  labels:
+    app: helloworld
 spec:
-  replicas: 2
+  replicas: 4
   selector:
-    app: replicaset
+    matchLabels:
+      app: helloworld
   template:
     metadata:
       labels:
-        app: replicaset
+        app: helloworld
     spec:
       containers:
       - name: k8s-demo
